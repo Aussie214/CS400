@@ -1,0 +1,11 @@
+Complete the profiling part of the assignment using java flight recorder before 
+answering the following questions.
+
+1.) What can you tell about the performance of your hash table implementation compared to Java's tree map? Explain why it is better/worse.
+
+When looking at the hot methods in jmc, the TreeMap implementation spent roughly 50% of the time inserting elements, compared to only 11.5% for my HashTable implementation. The less time the program spends on a specific method over and over, the more efficient the implementation. Since my HashTable implmentation spent less time inserting items, it is better than Java's tree map. The heap analysis showed that the TreeMap used 48% of the pressure and the HashTable used 22%. Casting an int to Integer used an additional 27% of heap pressure. This is a drawback of my HashTable implementation because im having to store primitives on the heap. This problem was how Profile interacted with both data structures, so regardless of what structure I use, that will be the same for both.
+
+
+2.) What did you observe in java mission control to come to the conclusion above?
+
+Looking at the hot methods, you can tell the TreeMap spent more time running its methods compared to my HashTable code. You can see that in the screenshot attatched. When analyzing the heap statistics, the TreeMap implementation used more heap memory than my Hashtable. 
